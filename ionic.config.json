@@ -1,0 +1,7 @@
+{
+  "name": "profileManager",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
