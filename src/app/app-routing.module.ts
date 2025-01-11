@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'profile-detail/:number',
     loadChildren: () => import('./profile-detail/profile-detail.module').then( m => m.ProfileDetailPageModule)
   },
+  {
+    path: 'pdf',
+    loadChildren: () => import('./pdf/pdf.module').then( m => m.PdfPageModule)
+  },
 ];
 
 @NgModule({
