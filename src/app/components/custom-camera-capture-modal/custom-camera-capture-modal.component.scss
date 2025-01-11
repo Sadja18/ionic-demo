@@ -1,0 +1,22 @@
+.camera-modal {
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+    height: 100%;
+    position: relative;
+}
+
+#camera-preview {
+    background-color: black;
+}
+
+.camera-actions {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}

@@ -1,0 +1,84 @@
+.form-parent {
+    background-color: whitesmoke;
+    margin: 0.5vh 0.5vw;
+    padding: 0.5vh 0.5vw;
+    border: 2px solid black;
+    color: black;
+}
+
+.radio-icon{
+    color: black;
+}
+
+.wrapper {
+    background-color: transparent;
+    // border: 2px solid grey;
+    margin: 0.5vh 0.5vw;
+    padding: 0.5vh 0.5vw;
+}
+
+.location-wrapper {
+
+    width: 95.5vw;
+    height: 40vh;
+    display: block;
+    background-color: transparent;
+    // border: 2px solid grey;
+    margin: 0.5vh 0.5vw;
+    padding: 0.5vh 0.5vw;
+}
+
+.button-wrapper {
+    width: 86.5vw;
+    height: 10vh;
+    margin: 0.5vh 0.5vw;
+    padding: 0.5vh 0.5vw;
+    display: flex;             /* Apply Flexbox */
+    justify-content: space-evenly;  /* Center horizontally */
+    align-items: center;      /* Optional: Center vertically */
+}
+
+.error-line {
+    font-size: small;
+    color: red;
+    background-color: transparent;
+    margin: 0.25vh auto 0.25vh 0.25vh 0.25vw;
+}
+
+.date-wrapper {
+    background-color: transparent;
+    margin-left: 0.5vh;
+    border: 1px solid grey;
+    border-radius: 4%;
+    padding: 0.5vh 1vw;
+    width: 95vw;
+}
+
+.gender-wrapper {
+    background-color: transparent;
+    margin-left: 0.5vh;
+    margin-top: 1vh;
+    border: 1px solid grey;
+    border-radius: 2%;
+    padding: 0.5vh 1vw;
+    width: 95vw;
+}
+
+.wrapper ion-img {
+    max-width: 200px; /* Restrict width to 100px */
+    height: auto;     /* Height adjusts to maintain aspect ratio */
+}
+
+.image-wrapper {
+    display: flex;             /* Apply Flexbox */
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Optional: Center vertically */
+}
+
+#mapLocation {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: transparent;
+    width: 100%;
+    height: 30vh;
+}

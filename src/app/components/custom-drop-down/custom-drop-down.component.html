@@ -1,0 +1,15 @@
+<div class="custom-select">
+  <!-- Label and Dropdown -->
+  <ion-list>
+
+    <ion-select [label]="label" [labelPlacement]="labelPlacement" [placeholder]="placeholder" [interface]="interface"
+      [fill]="fill" [cancelText]="'Cancel'" [okText]="'OK'" (ionChange)="onSelectionChange($event)"
+      [value]="selectedValue">
+      <!-- Options Loop -->
+      <ion-select-option *ngFor="let option of selectOptions" [value]="option.value">
+        {{ option.label }}
+      </ion-select-option>
+    </ion-select>
+
+  </ion-list>
+</div>

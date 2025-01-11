@@ -1,0 +1,11 @@
+<div class="custom-textbox">
+  <!-- Single line or number input -->
+  <ion-input *ngIf="type !== 'text area'" [type]="type === 'number' ? 'number' : 'text'" [placeholder]="placeholder"
+    [label]="label" [labelPlacement]="labelPlacement" [clearInput]="clearInput" [fill]="fill" [counter]="inputCounter"
+    [ngClass]="{ 'rounded-input': roundedEdges }" (ionInput)="onInputChange($event)" [value]="value"></ion-input>
+
+  <!-- Textarea input for multi-line text -->
+  <ion-textarea *ngIf="type === 'text area'" [rows]="lineLimit" [placeholder]="placeholder" [label]="label"
+    [labelPlacement]="labelPlacement" [fill]="fill" [counter]="inputCounter"
+    [ngClass]="{ 'rounded-input': roundedEdges }" (ionInput)="onInputChange($event)" [value]="value"></ion-textarea>
+</div>

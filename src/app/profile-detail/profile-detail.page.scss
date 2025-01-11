@@ -1,0 +1,137 @@
+.preview-container {
+    margin: 2vh auto;
+    /* Center the container vertically with top margin */
+    padding: 2vh;
+    /* Add padding for inner spacing */
+    max-width: 400px;
+    /* Set a fixed max width for the card */
+    border: 1px solid #ccc;
+    /* Add a subtle border */
+    border-radius: 8px;
+    /* Rounded corners for better visuals */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Shadow for elevation */
+    background-color: #fff;
+    /* White background */
+}
+
+.avatar-container {
+    display: flex;
+    justify-content: center;
+    /* Center avatar horizontally */
+    margin-bottom: 2vh;
+    /* Add space below the avatar */
+}
+
+.avatar {
+    width: 150px;
+    /* Restrict avatar size */
+    height: 150px;
+    // border: 1px solid #ccc;
+    background-color: transparent;
+    /* Add border to avatar */
+    border-radius: 50%;
+    /* Make it circular */
+    overflow: hidden;
+    /* Ensure no overflow */
+
+}
+
+.avatar img {
+    width: 100%;
+    /* Image takes full width */
+    height: 100%;
+    /* Maintain aspect ratio */
+}
+
+.info-container {
+    margin-bottom: 2vh;
+    /* Space between sections */
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow items to wrap */
+    justify-content: space-between;
+    /* Distribute items evenly */
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /* Each item takes full width */
+    margin-bottom: 1vh;
+    /* Space between rows */
+}
+
+.label {
+    font-weight: bold;
+    /* Highlight the labels */
+    margin-right: 1vw;
+    /* Space between label and value */
+}
+
+.value {
+    text-align: right;
+    /* Align values to the right */
+    color: #555;
+    /* Subtle color for values */
+}
+
+.empty-div {
+    width: 90vw;
+    /* Fill full width */
+    height: 25vh;
+
+    /* Height for spacing */
+    background-color: transparent;
+    /* No visible styling */
+    margin: 2vh 0;
+    // align-items: center;
+    // text-align: center;
+    // display: flex;
+
+    /* Top and bottom margin */
+}
+
+#locationMap {
+    width: 88%;
+    height: 100%;
+}
+
+.button-container {
+    margin: 2vh auto;
+    /* Center the container vertically with top margin */
+    padding: 2vh;
+    /* Add padding for inner spacing */
+    max-width: 400px;
+    /* Set a fixed max width for the card */
+    // border: 1px solid #ccc;
+    /* Add a subtle border */
+    // border-radius: 8px;
+    /* Rounded corners for better visuals */
+    // box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Shadow for elevation */
+    background-color: transparent;
+    /* White background */
+}
+
+.action-buttons {
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    /* Space between buttons */
+    margin: 2vh 2vw;
+    /* Space above the buttons */
+}
+
+ion-button {
+    width: 45%;
+    /* Equal button width */
+    font-size: 14px;
+    /* Button font size */
+}
+
+.close-div{
+    text-align: center;
+    margin: 2vh 2vw;
+}

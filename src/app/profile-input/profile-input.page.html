@@ -1,0 +1,123 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>New Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="form-parent">
+    <div class="wrapper">
+      <!-- First Name -->
+      <app-custom-text-box [label]="'First Name'" [type]="'single line'" [placeholder]="'Enter your First Name'"
+        [clearInput]="true" [fill]="'outline'" [inputCounter]="15" (valueChange)="onFirstNameValueChange($event)"
+        [value]="user.firstName">
+      </app-custom-text-box>
+      <p class="error-line" *ngIf="displayErrorTextLine('firstName')">
+        {{ errorText['firstName'] | titlecase }}
+      </p>
+    </div>
+
+    <div class="wrapper">
+      <!-- Last Name -->
+      <app-custom-text-box [label]="'Last Name'" [type]="'single line'" [placeholder]="'Enter your Last Name'"
+        [clearInput]="true" [fill]="'outline'" [inputCounter]="15" (valueChange)="onLastNameValueChange($event)"
+        [value]="user.lastName">
+      </app-custom-text-box>
+      <p class="error-line" *ngIf="displayErrorTextLine('lastName')">
+        {{ errorText['lastName'] | titlecase }}
+      </p>
+    </div>
+
+    <div class="wrapper">
+      <!-- Mobile Number -->
+      <app-custom-text-box [label]="'Mobile Number'" [type]="'number'"
+        [placeholder]="'Enter you Mobile Number (without prefix/extension)'" [clearInput]="true" [fill]="'outline'"
+        [inputCounter]="10" (valueChange)="onMobileNumberChange($event)" [value]="user.mobileNumber">
+      </app-custom-text-box>
+      <p class="error-line" *ngIf="displayErrorTextLine('mobileNumber')">
+        {{ errorText['mobileNumber'] | titlecase }}
+      </p>
+    </div>
+
+    <div class="wrapper date-wrapper">
+      <ion-label class="dob-label">Date of Birth</ion-label>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime id="datetime" presentation="date" [value]="user.dateOfBirth"
+            (ionChange)="onDateOfBirthChange($event)" [preferWheel]="true" [showDefaultButtons]="true" [formatOptions]="{
+            date: { day: '2-digit', month: 'short', year: 'numeric' }
+            }" required>
+            <span slot="title">Date of Birth</span>
+          </ion-datetime>
+        </ng-template>
+      </ion-modal>
+
+      <p class="error-line" *ngIf="displayErrorTextLine('dateOfBirth')">
+        {{ errorText['dateOfBirth'] | titlecase }}
+      </p>
+    </div>
+
+    <div class="wrapper gender-wrapper">
+      <!-- Gender Radio -->
+      <app-custom-radio [value]="user.gender" [label]="'Select your Gender'" [labelPlacement]="'end'" [required]="true"
+        [layout]="'horizontal'" [options]="genderOptions" (valueChange)="onGenderChange($event)">
+      </app-custom-radio>
+
+      <p class="error-line" *ngIf="displayErrorTextLine('gender')">
+        {{ errorText['gender'] | titlecase }}
+      </p>
+
+    </div>
+
+    <div class="wrapper">
+      <!-- Highest Qualification -->
+      <app-custom-drop-down [selectOptions]="educationQualificationOptions" [interface]="'popover'" [fill]="'outline'"
+        [label]="'Highest Qualification'" [labelPlacement]="'floating'"
+        [placeholder]="'Choose your highest Qualification'" (valueChange)="onHighestEducationChange($event)"
+        [selectedValue]="user.highestEducation">
+      </app-custom-drop-down>
+      <p class="error-line" *ngIf="displayErrorTextLine('highestEducation')">
+        {{ errorText['highestEducation'] | titlecase }}
+      </p>
+    </div>
+
+    <div class="wrapper">
+      <!-- Address -->
+      <app-custom-text-box [label]="'Address'" [type]="'text area'" [placeholder]="'Enter you address'"
+        [clearInput]="true" [fill]="'outline'" [inputCounter]="250" [lineLimit]="10"
+        (valueChange)="onAddressChange($event)" [value]="user.address">
+      </app-custom-text-box>
+      <p class="error-line" *ngIf="displayErrorTextLine('address')">
+        {{ errorText['address'] | titlecase }}
+      </p>
+    </div>
+
+    <div class="location-wrapper" #locationCanvasDiv>
+      <!-- Location Selector -->
+      <div id="mapLocation" #map class="map"></div>
+    </div>
+
+    <div class="button-wrapper">
+      <app-custom-image-getter [openFrontCameraByDefault]="true" (imagePicked)="handleImagePicked($event)">
+      </app-custom-image-getter>
+    </div>
+
+    <div class="wrapper image-wrapper">
+      <!-- <ion-avatar> -->
+      <ion-img *ngIf="currentImage && currentImagePreview" [src]="currentImagePreview"></ion-img>
+      <!-- </ion-avatar> -->
+      <p class="error-line" *ngIf="displayErrorTextLine('profilePicLocation')">
+        {{ errorText['profilePicLocation'] | titlecase }}
+      </p>
+    </div>
+
+    <div class="button-wrapper">
+      <ion-button shape="round" color="warning" fill="solid" (click)="onResetClick()">Reset</ion-button>
+      <ion-button shape="round" color="success" fill="solid" (click)="onSubmitClick()">Submit</ion-button>
+    </div>
+  </div>
+</ion-content>

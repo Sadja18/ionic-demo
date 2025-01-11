@@ -1,2 +1,63 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+.custom-toast {
+    --background: var(--ion-color-primary);
+    /* Default background color */
+    //   --background: blue;
+    color: #ffffff;
+    /* White text */
+    font-size: 1.1rem;
+    /* Large font size */
+    text-align: center;
+    /* Center align text */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 12px;
+    /* Add padding for better visibility */
+}
+
+/* Add specific styles for different types if needed */
+.custom-toast-success {
+    --background: green;
+    /* Success toast background */
+    color: #ffffff;
+    /* White text */
+    font-size: 1.1rem;
+    /* Large font size */
+    text-align: center;
+    /* Center align text */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 12px;
+    /* Add padding for better visibility */
+}
+
+.custom-toast-error {
+    --background: red;
+    /* Error toast background */
+    color: #ffffff;
+    /* White text */
+    font-size: 1.1rem;
+    /* Large font size */
+    text-align: center;
+    /* Center align text */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 12px;
+    /* Add padding for better visibility */
+}
+
+.custom-toast-info {
+    --background: rgb(245, 205, 26);
+    /* Info toast background */
+    color: #000000;
+    /* White text */
+    font-size: 1.1rem;
+    /* Large font size */
+    text-align: center;
+    /* Center align text */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 12px;
+    /* Add padding for better visibility */
+}

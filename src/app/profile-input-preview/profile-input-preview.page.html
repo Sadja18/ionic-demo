@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Preview Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="preview-container">
+    <!-- Avatar Image Section -->
+    <div class="avatar-container">
+      <ion-avatar class="avatar">
+        <img [src]="currentImagePreview" *ngIf="currentImagePreview" />
+      </ion-avatar>
+    </div>
+
+    <!-- Name Section: First Name and Last Name -->
+    <div class="info-container">
+      <div class="info-item">
+        <span class="label">First Name:</span>
+        <span class="value">{{ user.firstName | titlecase }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Last Name:</span>
+        <span class="value">{{ user.lastName | titlecase }}</span>
+      </div>
+    </div>
+
+    <!-- Date of Birth -->
+    <div class="info-item">
+      <span class="label">Date of Birth: </span>
+      <span class="dateOfBirth">{{ user.dateOfBirth | date: 'MMM dd, yyyy' }}</span>
+    </div>
+
+    <!-- Mobile Number Section -->
+    <div class="info-item">
+      <span class="label">Mobile:</span>
+      <span class="value">{{ user.mobileNumber }}</span>
+    </div>
+
+    <!-- Gender Section -->
+    <div class="info-item">
+      <span class="label">Gender:</span>
+      <span class="value">{{ user.gender | titlecase }}</span>
+    </div>
+
+    <!-- Highest Qualification Section -->
+    <div class="info-item">
+      <span class="label">Highest Qualification:</span>
+      <span class="value">{{ user.highestEducation | titlecase }}</span>
+    </div>
+
+    <!-- Address Section -->
+    <div class="info-item">
+      <span class="label">Address:</span>
+      <span class="value">{{ user.address }}</span>
+    </div>
+
+    <!-- Empty Div with Fixed Size -->
+    <div class="empty-div">
+      <div id="locationMap"></div>
+    </div> 
+
+  </div>
+
+  <div class="button-container">
+    <!-- Action Buttons: Edit and Save -->
+    <div class="action-buttons">
+      <ion-button shape="round" color="warning" fill="solid" (click)="onEditClick()">Edit</ion-button>
+      <ion-button shape="round" color="success" fill="solid" (click)="onSaveClick()">Save</ion-button>
+    </div>
+  </div>
+</ion-content>

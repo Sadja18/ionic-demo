@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Profiles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ng-container *ngIf="filteredUsers && filteredUsers.length > 0">
+    <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="filterUsers()" showClearButton="focus" debounce="500"
+      placeholder="Search by name or mobile"></ion-searchbar>
+
+    <!-- This div will be the grid container -->
+    <div class="grid-container">
+      <ion-item *ngFor="let user of filteredUsers" (click)="onUserEntrySelect(user)">
+        <ion-card>
+          <!-- <div class="avatar-container"> -->
+          <!-- <ion-avatar class="avatar"> -->
+          <img *ngIf="user.profilePicLocation" [src]="user.profilePicLocation" />
+          <!-- </ion-avatar> -->
+          <!-- </div> -->
+          <ion-card-header>
+            <ion-card-title>
+              <div class="user-name-container">
+                <div class="user-name first-name">{{ user.firstName }}</div>
+                <div class="user-name last-name">{{ user.lastName }}</div>
+              </div>
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+
+            <div class="mobile-number-container">
+              <div class="mobile-number">
+                {{ user.mobileNumber }}
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!filteredUsers || filteredUsers.length <= 0">
+    <div>
+      No users found
+    </div>
+  </ng-container>
+</ion-content>

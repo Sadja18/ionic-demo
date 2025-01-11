@@ -1,0 +1,46 @@
+.custom-radio-group {
+    background-color: transparent;
+    display: block;
+    text-align: left;
+}
+
+.horizontal {
+    width: 40%;
+    // height: 10vh;
+    // border: 2px solid green;
+    margin: 2vh 0vw;
+    padding: 0vh 0vw;
+    text-align: center;
+    justify-content: space-around;
+    text-align: center;
+    background-color: transparent;
+    align-items: center;
+}
+
+.vertical {
+    width: 40%;
+    // height: 4vh;
+    // border: 2px solid green;
+    margin: 2vh 0vw;
+    // padding: 2vh 2vw;
+    justify-content: space-around;
+    text-align: center;
+    display: block;
+    background-color: transparent;
+}
+
+ion-radio {
+    background-color: transparent;
+    margin: 5px 20px;
+    // border: 1px solid black;
+    padding: 0.5vh 0.5vw;
+    width: 120px;
+}
+
+/* Media Query for larger screens (tablets and computers) */
+@media (min-width: 768px) {
+    ion-radio {
+        width: 120px;
+        /* Set width to 150px for screens wider than 768px */
+    }
+}

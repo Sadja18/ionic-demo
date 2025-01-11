@@ -1,0 +1,23 @@
+<!-- <ion-modal> -->
+<div class="camera-modal" style="background-color: black; height: 100%; display: flex; flex-direction: column;">
+
+  <!-- Camera Preview Section -->
+  <div id="camera-preview" #preview
+    [ngStyle]="{'height': previewHeight, 'width': previewWidth, 'background-color': 'black'}">
+  </div>
+
+  <!-- Camera Action Buttons Section -->
+  <div
+    [ngStyle]="{'height': buttonsHeight, 'display': 'flex', 'justify-content': 'space-around', 'align-items': 'center', 'background-color': 'rgba(0, 0, 0, 0.7)'}">
+    <ion-button (click)="flipCamera()" color="light" shape="round" size="default" slot="icon-only">
+      <ion-icon name="camera-reverse-sharp"></ion-icon>
+    </ion-button>
+    <ion-button (click)="captureImage()" color="light" shape="round" size="default" slot="icon-only">
+      <ion-icon name="camera-sharp"></ion-icon>
+    </ion-button>
+    <ion-button (click)="closeCamera()" color="danger" shape="round" size="default" slot="icon-only">
+      <ion-icon name="close-circle-sharp"></ion-icon>
+    </ion-button>
+  </div>
+</div>
+<!-- </ion-modal> -->

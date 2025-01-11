@@ -1,0 +1,19 @@
+<div class="custom-radio-group">
+  <!-- Radio Group Label -->
+  <div *ngIf="label" class="radio-group-label">
+    <label>{{ label }}</label>
+  </div>
+
+  <!-- Radio Buttons -->
+  <ion-radio-group [value]="value" (ionChange)="onRadioChange($event)">
+    <div [ngClass]="{
+        horizontal: layout === 'horizontal',
+        vertical: layout === 'vertical'
+      }">
+      <!-- Loop through options and create ion-radio for each -->
+      <ion-radio *ngFor="let option of options" [value]="option.value" [labelPlacement]="labelPlacement" >
+        {{ option.label }}
+      </ion-radio>
+    </div>
+  </ion-radio-group>
+</div>
