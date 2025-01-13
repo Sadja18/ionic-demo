@@ -4,17 +4,40 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Profile PDF</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">pdf</ion-title>
-      
-    </ion-toolbar>
-  </ion-header>
   <div>
-    <ion-button (click)="createPdf()">Create PDF</ion-button>
+    <ion-button (click)="initializePDF()">Create PDF</ion-button>
+  </div>
+  <div *ngIf="isRendered" class="pdf-viewer-container">
+    <!-- Navigation Buttons -->
+    <div class="navigation">
+      <button (click)="previousPage()" [disabled]="currentPage === 1">
+        Previous
+      </button>
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+        Next
+      </button>
+    </div>
+
+    <!-- Display Current Page as Image -->
+    <div class="page-container">
+      <img *ngIf="imageList[currentPage - 1]" [src]="imageList[currentPage - 1]" alt="Page {{ currentPage }}"
+        class="page-image" />
+    </div>
+  </div>
+
+  <!-- Loader or Message When PDF is Not Yet Rendered -->
+  <div *ngIf="!isRendered" class="loader">
+    <p>Loading PDF...</p>
+  </div>
+
+
+  <div *ngIf="isRendered">
+    <ion-button (click)="downloadPdf()">Download PDF</ion-button>
   </div>
 </ion-content>
