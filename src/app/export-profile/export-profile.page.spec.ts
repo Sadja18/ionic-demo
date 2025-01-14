@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PdfPage } from './pdf.page';
+import { ExportProfilePage } from './export-profile.page';
 
-describe('PdfPage', () => {
-  let component: PdfPage;
-  let fixture: ComponentFixture<PdfPage>;
+describe('ExportProfilePage', () => {
+  let component: ExportProfilePage;
+  let fixture: ComponentFixture<ExportProfilePage>;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PdfPage);
+    fixture = TestBed.createComponent(ExportProfilePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

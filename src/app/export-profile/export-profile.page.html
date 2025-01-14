@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Export Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-button (click)="initializePDF()">Create PDF</ion-button>
+    <ion-button *ngIf="isRendered" (click)="downloadPdf()">Download PDF</ion-button>
+  </div>
+  <div *ngIf="isRendered" style="width: 98vw;height: 50vh; margin: 2vh 1vw;">
+    <!-- <img [src]="pdfImageSrcSafeUri" alt="" style="width: 100%; height: 100%;"> -->
+
+    <!-- <embed [src]="getImgSrcUri()" type=""> -->
+    <!-- <div #pdfViewer></div> -->
+    <pdf-viewer [src]="pdfFileUri" [render-text]="true" [original-size]="false"
+      style="width: 400px; height: 500px"></pdf-viewer>
+  </div>
+</ion-content>

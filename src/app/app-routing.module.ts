@@ -24,9 +24,9 @@ const routes: Routes = [
     loadChildren: () => import('./profile-detail/profile-detail.module').then( m => m.ProfileDetailPageModule)
   },
   {
-    path: 'pdf',
-    loadChildren: () => import('./pdf/pdf.module').then( m => m.PdfPageModule)
-  },
+    path: 'export-profile',
+    loadChildren: () => import('./export-profile/export-profile.module').then( m => m.ExportProfilePageModule)
+  }
 ];
 
 @NgModule({
