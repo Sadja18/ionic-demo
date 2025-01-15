@@ -8,6 +8,9 @@ import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import { Capacitor } from '@capacitor/core';
 import { TDocumentDefinitions } from 'pdfmake/interfaces';
 
+import { Browser } from '@capacitor/browser';
+import { FileOpener, FileOpenerOptions } from '@capacitor-community/file-opener';
+
 (<any>pdfMake).addVirtualFileSystem(pdfFonts);
 
 @Component({
@@ -34,7 +37,6 @@ export class ExportProfilePage implements OnInit {
 
   @ViewChild('pdfViewer') pdfViewer!: ElementRef;
 
-
   constructor(
     private platform: Platform,
     private toastController: ToastController,
@@ -46,7 +48,11 @@ export class ExportProfilePage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this.initializePDF();
+    // this.initializePDF();
+  }
+
+  // Open PDF using pdfFileUri (real file URL)
+  openWithPdfFileUri() {
   }
 
   getImgSrcUri() {
@@ -64,9 +70,6 @@ export class ExportProfilePage implements OnInit {
   }
 
   getPdfDefinition() {
-
-    // const path =Capacitor.convertFileSrc("assets/logo.jpg");
-    // console.log(path);
     const dd: TDocumentDefinitions = {
       content: [
         {
@@ -187,8 +190,8 @@ export class ExportProfilePage implements OnInit {
             {
               text: '___________________________________________________________________________________________________________________',
               alignment: 'left',
-              color:'#d9d9d9',
-              fontSize:9,
+              color: '#d9d9d9',
+              fontSize: 9,
             },
             {
               'text': 'Stage-Wise Approval and Grading',
@@ -299,7 +302,7 @@ export class ExportProfilePage implements OnInit {
               'text': '____________________________________________________________________',
               alignment: 'center',
               bold: true,
-              color:'#d9d9d9',
+              color: '#d9d9d9',
               fontSize: 10,
             },
             {
@@ -345,18 +348,18 @@ export class ExportProfilePage implements OnInit {
               lineHeight: 1,
               fontSize: 8,
               bold: true,
-              color:'#d9d9d9',
+              color: '#d9d9d9',
             },
             {
               columns: [
                 {
-                  width:35,
+                  width: 35,
                   margin: [0, 1],
                   text: 'Notes',
-                  bold:true,
+                  bold: true,
                 },
                 {
-                  width:'auto',
+                  width: 'auto',
                   margin: [0, 1],
                   text: '- This certificate must be maintained as a record for quality control.'
                 }
@@ -367,8 +370,6 @@ export class ExportProfilePage implements OnInit {
 
       ],
     };
-
-
     return dd;
   }
 
@@ -376,9 +377,9 @@ export class ExportProfilePage implements OnInit {
     const pdfDefinition = this.getPdfDefinition();
     this.pdfObject = pdfMake.createPdf(pdfDefinition);
 
-    const saveDir = Directory.Documents;
-
     this.pdfObject.getBase64(async (base64Data) => {
+      this.pdfBase64Data = base64Data;
+
       // Write the file as an image to the cache directory
       try {
         const writeResult = await Filesystem.writeFile({
@@ -390,6 +391,7 @@ export class ExportProfilePage implements OnInit {
 
         this.pdfImageSrcSafeUri = writeResult.uri;
 
+
         // console.log(this.pdfImageSrcSafeUri)
         // console.log(blob);
 
@@ -397,9 +399,20 @@ export class ExportProfilePage implements OnInit {
         console.log(writeResult);
         this.pdfFileUri = Capacitor.convertFileSrc(writeResult.uri);
 
-        console.log('File saved successfully!');
+        console.log('File initialised successfully!');
 
         this.isRendered = true
+
+        try {
+          const fileOpenerOptions: FileOpenerOptions = {
+            filePath: this.pdfImageSrcSafeUri,
+            contentType: 'application/pdf',
+            openWithDefault: true,
+          };
+          await FileOpener.open(fileOpenerOptions);
+        } catch (e) {
+          console.log('Error opening file', e);
+        }
 
       } catch (error) {
         console.error('write file error ', error);
@@ -531,8 +544,6 @@ export class ExportProfilePage implements OnInit {
       throw error;
     }
   }
-
-
 
   ionViewDidLeave() {
     this.cleanupCache();
